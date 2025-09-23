@@ -1,16 +1,24 @@
 import { useGroundwaterData } from "@/hooks/useGroundwaterData";
 import { InfoCards } from "@/components/dashboard/InfoCards";
 import { AlertBanner } from "@/components/dashboard/AlertBanner";
+import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Loader2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Overview() {
   const {
     selectedStationData,
-    selectedDate,
+    stations,
+    selectedStation,
     viewMode,
+    selectedDate,
+    availableDates,
     loading,
-    error
+    error,
+    loadCustomData,
+    updateSelectedStation,
+    updateViewMode,
+    updateSelectedDate
   } = useGroundwaterData();
 
   if (loading) {
@@ -52,16 +60,30 @@ export default function Overview() {
   }
 
   return (
-    <div className="space-y-6">
-      {/* Dashboard Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold bg-gradient-water bg-clip-text text-transparent mb-2">
-          JalDarpan Dashboard
-        </h1>
-        <p className="text-muted-foreground">
-          Real-time groundwater monitoring and analysis for {selectedStationData.location}
-        </p>
-      </div>
+    <div className="flex min-h-screen bg-background">
+      <Sidebar
+        stations={stations}
+        selectedStation={selectedStation}
+        viewMode={viewMode}
+        selectedDate={selectedDate}
+        availableDates={availableDates}
+        onStationSelect={updateSelectedStation}
+        onViewModeChange={updateViewMode}
+        onDateChange={updateSelectedDate}
+        onFileUpload={loadCustomData}
+      />
+      
+      <main className="flex-1 p-6 overflow-y-auto">
+        <div className="max-w-7xl mx-auto space-y-6">
+          {/* Dashboard Header */}
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold bg-gradient-water bg-clip-text text-transparent mb-2">
+              JalDarpan Dashboard
+            </h1>
+            <p className="text-muted-foreground">
+              Real-time groundwater monitoring and analysis for {selectedStationData.location}
+            </p>
+          </div>
 
       {/* Info Cards */}
       <InfoCards 
@@ -110,7 +132,9 @@ export default function Overview() {
             <p className="text-sm text-muted-foreground">cumulative precipitation</p>
           </CardContent>
         </Card>
-      </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

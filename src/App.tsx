@@ -9,7 +9,6 @@ import Analysis from "./pages/Analysis";
 import Charts from "./pages/Charts";
 import Map from "./pages/Map";
 import Data from "./pages/Data";
-import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,7 +28,6 @@ const App = () => (
               <Route path="/charts" element={<Charts />} />
               <Route path="/map" element={<Map />} />
               <Route path="/data" element={<Data />} />
-              <Route path="/settings" element={<Settings />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

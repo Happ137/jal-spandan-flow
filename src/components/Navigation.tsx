@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Home, BarChart3, MapPin, Database, Settings, TrendingUp } from "lucide-react";
+import { Home, BarChart3, MapPin, Database, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -8,7 +8,6 @@ const navItems = [
   { to: "/charts", icon: BarChart3, label: "Charts" },
   { to: "/map", icon: MapPin, label: "Map" },
   { to: "/data", icon: Database, label: "Data" },
-  { to: "/settings", icon: Settings, label: "Settings" },
 ];
 
 export function Navigation() {
