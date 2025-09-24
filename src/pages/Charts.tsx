@@ -42,7 +42,10 @@ export default function Charts() {
           Charts & Visualizations
         </h1>
         <p className="text-muted-foreground">
-          Graphical analysis of groundwater trends for {selectedStationData.location}
+          Graphical analysis of groundwater trends for <span className="font-semibold text-primary">{selectedStationData.location}</span> (Station ID: {selectedStationData.stationId})
+        </p>
+        <p className="text-sm text-muted-foreground mt-1">
+          Visualizing {selectedStationData.records.length} data points from {selectedStationData.records[0]?.Date} to {selectedStationData.records[selectedStationData.records.length - 1]?.Date}
         </p>
       </div>
 

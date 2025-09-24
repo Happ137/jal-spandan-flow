@@ -44,7 +44,10 @@ export default function Map() {
           Station Map
         </h1>
         <p className="text-muted-foreground">
-          Interactive map showing all monitoring stations and their current status
+          Interactive map showing all monitoring stations with <span className="font-semibold text-primary">{stations.find(s => s.stationId === selectedStation)?.location || 'selected station'}</span> highlighted
+        </p>
+        <p className="text-sm text-muted-foreground mt-1">
+          Click on any station marker to switch location and update all dashboard data
         </p>
       </div>
 

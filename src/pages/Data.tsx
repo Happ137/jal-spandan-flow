@@ -42,7 +42,10 @@ export default function Data() {
           Data Table
         </h1>
         <p className="text-muted-foreground">
-          Raw data view and export for {selectedStationData.location}
+          Raw data view and export for <span className="font-semibold text-primary">{selectedStationData.location}</span> (Station ID: {selectedStationData.stationId})
+        </p>
+        <p className="text-sm text-muted-foreground mt-1">
+          Displaying {selectedStationData.records.length} records from {selectedStationData.records[0]?.Date} to {selectedStationData.records[selectedStationData.records.length - 1]?.Date}
         </p>
       </div>
 

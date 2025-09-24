@@ -61,7 +61,10 @@ export default function Analysis() {
           Groundwater Analysis
         </h1>
         <p className="text-muted-foreground">
-          Detailed insights and trends for {selectedStationData.location}
+          Detailed insights and trends for <span className="font-semibold text-primary">{selectedStationData.location}</span> (Station ID: {selectedStationData.stationId})
+        </p>
+        <p className="text-sm text-muted-foreground mt-1">
+          Analyzing {selectedStationData.records.length} data points from {selectedStationData.records[0]?.Date} to {selectedStationData.records[selectedStationData.records.length - 1]?.Date}
         </p>
       </div>
 
