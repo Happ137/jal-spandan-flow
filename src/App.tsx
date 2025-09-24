@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
+import Home from "./pages/Home";
 import Overview from "./pages/Overview";
 import Analysis from "./pages/Analysis";
 import Charts from "./pages/Charts";
@@ -23,7 +24,8 @@ const App = () => (
           <Navigation />
           <div className="container mx-auto p-6">
             <Routes>
-              <Route path="/" element={<Overview />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/overview" element={<Overview />} />
               <Route path="/analysis" element={<Analysis />} />
               <Route path="/charts" element={<Charts />} />
               <Route path="/map" element={<Map />} />
