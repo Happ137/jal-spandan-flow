@@ -10,7 +10,10 @@ export default function Home() {
 
   const handleLocationSelect = (stationId: string) => {
     updateSelectedStation(stationId);
-    navigate('/overview');
+    // Small delay to ensure state is updated before navigation
+    setTimeout(() => {
+      navigate('/overview');
+    }, 100);
   };
 
   if (loading) {
