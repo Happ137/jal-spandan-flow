@@ -28,7 +28,7 @@ export default function Charts() {
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center space-y-4">
           <h2 className="text-xl font-semibold">Charts Unavailable</h2>
-          <p className="text-muted-foreground">Please ensure data is loaded in Settings.</p>
+          <p className="text-muted-foreground">Please select a station from the Overview tab.</p>
         </div>
       </div>
     );
